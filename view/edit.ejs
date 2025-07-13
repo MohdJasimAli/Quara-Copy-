@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <h2>Edit</h2>
+    <p>Post id: <%= post.id%></p>
+    <p>Post username:<%= post.username%></p>
+     <% if(post.image) { %>
+        <img src="<%= post.image %>" width="200px" />
+    <% } %>
+    <form method="POST" action="/posts/<%= post.id%>?_method=PATCH">
+        <textarea name="content"> <%= post.content %></textarea><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <h1 class="post">Quara</h1>
+   <% for (let post of posts) { %>
+    <div>
+        <h3>@<%= post.username %></h3>
+        <p><%= post.content %></p>
+
+        <% if (post.image) { %>
+            <img src="<%= post.image %>" width="200px" alt="Post image">
+        <% } %>
+
+        <a href="/posts/<%= post.id %>">See In Details</a>
+        <a href="/posts/<%= post.id %>/edit">Edit</a>
+        <form method="POST" action="/posts/<%= post.id %>?_method=DELETE" class="form1">
+            <button class="btn1">Delete Post</button>
+        </form>
+    </div>
+<% } %>
+    <br>
+    <br>
+    <a  class="last" href="http://localhost:8080/posts/new">Create New Post</a>
+</body>
+</html>
